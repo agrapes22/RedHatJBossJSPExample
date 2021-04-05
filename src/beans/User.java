@@ -1,14 +1,22 @@
 package beans;
 
-import javax.faces.bean.ManagedBean;
+import javax.faces.bean.*;
 import javax.faces.bean.ViewScoped;
+import javax.validation.constraints.*;
 
 @ManagedBean
 @ViewScoped
 public class User 
 {
+	@NotNull
+	@Size(min=5, max=15)
 	String firstName;
+	
+	@NotNull
+	@Size(min=5, max=15)
 	String lastName;
+	
+	Orders orders = new Orders();
 	
 	public String getFirstName() 
 	{
@@ -27,5 +35,9 @@ public class User
 		this.lastName = lastName;
 	}
 	
+	public Orders getOrders()
+	{
+		return orders;
+	}
 	
 }
