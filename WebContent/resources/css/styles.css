@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+.order-table{
+	border-collapse:collapse;
+}
+
+.order-table-header {
+	text-align: center;
+	background: #FFFFFFF;
+	padding: 16px;
+}
+
+.order-table-odd-row {
+	text-align: center;
+	background: none;
+}
+
+.order-table-even-row {
+	text-align: center;
+	background: #FFFFFFF;
+}
