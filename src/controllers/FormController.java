@@ -1,16 +1,26 @@
 package controllers;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 import beans.Orders;
 import beans.User;
+import business.MyTimerService;
+import business.OrdersBusinessInterface;
 
 @ManagedBean
 @ViewScoped
 public class FormController 
 {
+	@Inject
+	OrdersBusinessInterface service;
+	
+	@EJB
+	MyTimerService timer;
+	
 	//Orders Orders = new Orders();
 	
 	public String onSubmit(User user)
@@ -25,6 +35,10 @@ public class FormController
 		
 		System.out.println(orders.toString());
 		
+		service.test();
+		
+		timer.setTimer(10000);
+		
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("orders", orders);
 		
@@ -37,5 +51,10 @@ public class FormController
 		user = context.getApplication().evaluateExpressionGet(context, "#{user}", User.class);
 		FacesContext.getCurrentInstance().getExternalContext().getFlash().put("user", user);
 		return "TestResponse2.xhtml";
+	}
+	
+	public OrdersBusinessInterface getService()
+	{
+		return service;
 	}
 }
