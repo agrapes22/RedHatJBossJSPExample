@@ -25,7 +25,7 @@ public class MyTimerService {
 	@Schedule(second="*/10", minute="*", hour="0-23", dayOfWeek="Mon-Fri",
       dayOfMonth="*", month="*", year="*", info="MyTimer")
     private void scheduledTimeout(final Timer t) {
-        logger.info("@Schedule called at: " + new java.util.Date());
+        //logger.info("@Schedule called at: " + new java.util.Date());
     }
 	
 	public void setTimer(long interval)
@@ -36,6 +36,6 @@ public class MyTimerService {
 	@Timeout
 	public void programmicTimer(Timer timer)
 	{
-		logger.info("In programmicTimer");
+		//logger.info("In programmicTimer");
 	}
 }

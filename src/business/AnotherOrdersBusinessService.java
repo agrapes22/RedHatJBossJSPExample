@@ -41,4 +41,10 @@ public class AnotherOrdersBusinessService implements OrdersBusinessInterface{
 		this.orders = orders;
 	}
 
+	@Override
+	public void sendOrder(Order order) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
