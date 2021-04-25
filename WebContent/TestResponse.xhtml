@@ -42,6 +42,8 @@
 	</h:dataTable>
 	
 	<h:button value="Login" outcome="TestForm" />
+	
+	<h:commandButton action="#{formController.onSendOrder()}" value="Send Order" />
 </center>
 <ui:insert name = "commonFooter"	>
 	<ui:include src = "/layouts/commonFooter.xhtml" />

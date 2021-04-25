@@ -5,7 +5,7 @@ import javax.faces.bean.ViewScoped;
 import javax.validation.constraints.*;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class User 
 {
 	@NotNull

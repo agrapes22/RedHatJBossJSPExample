@@ -1,11 +1,19 @@
 package beans;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Order 
 {
 	String orderNum;
 	String productName;
 	float price = 0;
 	int quantity = 0;
+	
+	public Order()
+	{
+		
+	}
 	
 	public Order(String orderNum, String productName, float price, int quantity) 
 	{

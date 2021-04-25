@@ -12,6 +12,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import beans.Order;
 import beans.Orders;
 import beans.User;
 import business.MyTimerService;
@@ -24,8 +25,8 @@ public class FormController
 	@Inject
 	OrdersBusinessInterface service;
 	
-	@EJB
-	MyTimerService timer;
+	//@EJB
+	//MyTimerService timer;
 	
 	//Orders Orders = new Orders();
 	
@@ -40,11 +41,10 @@ public class FormController
 		
 		Orders orders = user.getOrders();
 		
-		//System.out.println(orders.toString());
 		
 		//service.test();
 		
-		timer.setTimer(10000);
+		//timer.setTimer(10000);
 	
 		System.out.println("Original:");
 		getAllOrders();
@@ -142,5 +142,12 @@ public class FormController
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public String onSendOrder()
+	{
+		Order order = new Order("F123","Shirt",24.99f,1);
+		service.sendOrder(order);
+		return "OrderResponse.xhtml";
 	}
 }
