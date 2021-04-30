@@ -14,7 +14,7 @@
 	<ui:include page = "/layouts/commonHeader.xhtml" />
 </ui:insert>
 <center>
-	Hello #{user.firstName} #{user.lastName}. You orders are 
+	Hello #{user.firstName}, your orders are 
 	<br></br>
 	
 	<h:dataTable value = "#{formController.service.orders}" var = "order">
@@ -41,9 +41,8 @@
 	
 	</h:dataTable>
 	
-	<h:button value="Login" outcome="TestForm" />
+	<h:commandButton action="#{formController.onLogoff()}" value="Log Out" />
 	
-	<h:commandButton action="#{formController.onSendOrder()}" value="Send Order" />
 </center>
 <ui:insert name = "commonFooter"	>
 	<ui:include src = "/layouts/commonFooter.xhtml" />

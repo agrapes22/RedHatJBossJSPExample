@@ -30,7 +30,7 @@ public class FormController
 	
 	//Orders Orders = new Orders();
 	
-	
+	/*
 	public String onSubmit(User user) throws SQLException
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -58,6 +58,14 @@ public class FormController
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("orders", orders);
 		
 		return "TestResponse.xhtml";
+	}
+	*/
+	
+	public String onLogoff()
+	{
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		
+		return "TestResponse.xhtml?faces-redirect=true";
 	}
 	
 	public String onFlash(User user)

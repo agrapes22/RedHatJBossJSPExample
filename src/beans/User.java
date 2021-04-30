@@ -1,7 +1,11 @@
 package beans;
 
+import java.security.Principal;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.*;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.validation.constraints.*;
 
 @ManagedBean
@@ -38,6 +42,24 @@ public class User
 	public Orders getOrders()
 	{
 		return orders;
+	}
+	
+	@PostConstruct
+	public void init()
+	{
+		Principal principle= FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
+		
+		if(principle == null)
+		{
+			setFirstName("Unknown");
+			setLastName("");
+		}
+		else
+		{
+			setFirstName(principle.getName());
+			setLastName("");
+		}
+
 	}
 	
 }

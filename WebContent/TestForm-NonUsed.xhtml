@@ -11,14 +11,19 @@
 
 <title>JSF Form Page</title>
 <body>
-	<div align="center"> 
-	<h:form  method="post" action="j_security_check">
-		Username: <h:inputText id="j_username" autocomplete="off" /><br/>
-		Password: <h:inputSecret id="j_password" autocomplete="off" /><br/>
-		<h:commandButton type="submit" value="Submit" />
+	<center>
+	<h:form>
+		First name:<h:inputText value="#{user.firstName}"/>
+		Last name:<h:inputText value="#{user.lastName}"/>
+		<br></br>
+		<h:commandButton action="#{formController.onSubmit(user)}" value="Submit" />
+		<br></br>
+		<h:commandButton action="#{formController.onFlash(user)}" value="Flash" />
+		<br></br>
+		<h:commandButton action="#{formController.onSendOrder()}" value="Send Order" />
 	</h:form>
-</div>
-
+	</center>
+	<h:messages/>
 	
 <ui:insert name = "commonFooter"	>
 	<ui:include src = "/layouts/commonFooter.xhtml" />
